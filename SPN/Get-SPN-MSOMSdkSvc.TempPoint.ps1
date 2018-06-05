@@ -10,7 +10,8 @@ foreach ($result in $results)
 	
 	$userEntry = $result.GetDirectoryEntry()
 	
-	
+	where($userEntry.servicePrincipalName -contains "MSOMSdkSvc/")
+	{
 		Write-host "Object Name = " $userEntry.name -backgroundcolor "yellow" -foregroundcolor "black"
 		Write-host "DN      =      "  $userEntry.distinguishedName
 		Write-host "Object Cat. = "  $userEntry.objectCategory
@@ -22,5 +23,5 @@ foreach ($result in $results)
 		}
 		
 		Write-host ""
-	
+	}
 }

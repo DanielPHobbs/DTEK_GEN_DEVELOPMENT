@@ -11,16 +11,20 @@ foreach ($result in $results)
 	$userEntry = $result.GetDirectoryEntry()
 	
 	
+	
 		Write-host "Object Name = " $userEntry.name -backgroundcolor "yellow" -foregroundcolor "black"
 		Write-host "DN      =      "  $userEntry.distinguishedName
 		Write-host "Object Cat. = "  $userEntry.objectCategory
 		Write-host "servicePrincipalNames"        $i=1
-		
-		foreach ($SPN in $userEntry.servicePrincipalName)
+	
+	foreach ($SPN in $userEntry.servicePrincipalName)
+	{
+		IF ($SPN -like 'MSOMSdkSvc*')
 		{
-			Write-host "SPN(" $i ")   =      " $SPN       $i+=1
+			Write-host "SPN(" $i ")   =      " $SPN
+			$i += 1
 		}
-		
-		Write-host ""
+	}
+	Write-host ""
 	
 }
