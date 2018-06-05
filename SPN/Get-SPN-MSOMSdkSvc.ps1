@@ -6,25 +6,25 @@ $results = $search.Findall()
 foreach ($result in $results)
 {
 	
-	
-	
 	$userEntry = $result.GetDirectoryEntry()
 	
-	
-	
+	if ($userEntry.servicePrincipalName -like 'MSOMSdkSvc*')
+	{
 		Write-host "Object Name = " $userEntry.name -backgroundcolor "yellow" -foregroundcolor "black"
 		Write-host "DN      =      "  $userEntry.distinguishedName
 		Write-host "Object Cat. = "  $userEntry.objectCategory
-		Write-host "servicePrincipalNames"        $i=1
-	
-	foreach ($SPN in $userEntry.servicePrincipalName)
-	{
-		IF ($SPN -like 'MSOMSdkSvc*')
+		Write-host "servicePrincipalNames"
+		$i = 1
+		
+		foreach ($SPN in $userEntry.servicePrincipalName)
 		{
-			Write-host "SPN(" $i ")   =      " $SPN
-			$i += 1
+			IF ($SPN -like 'MSOMSdkSvc*')
+			{
+				
+				Write-host "SPN(" $i ")   =      " $SPN
+				$i += 1
+			}
 		}
+		Write-host ""
 	}
-	Write-host ""
-	
 }
