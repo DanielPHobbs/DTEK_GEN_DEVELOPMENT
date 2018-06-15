@@ -1,0 +1,1 @@
+netdom.exe resetpwd /s:dtekad01.dtek.com /ud:dtek/danny /pd:*
