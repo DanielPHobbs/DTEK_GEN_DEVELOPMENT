@@ -37,3 +37,6 @@ Where-Object { $_.PSChildName -match '^(?!S)\p{L}' } |
 Select-Object @{ name = ".NET Framework"; expression = { $_.PSChildName } },
 			  @{ name = "Product"; expression = { $Lookup[$_.Release] } },
 			  Version, Release
+
+
+#(Get-ItemProperty "HKLM:Software\Microsoft\NET Framework Setup\NDP\v4\Full").Version
