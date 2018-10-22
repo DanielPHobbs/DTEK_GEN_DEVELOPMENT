@@ -115,6 +115,7 @@ No     = 7
 } #end function
 
 #//example
-#Global:Popup "Do you want to get work done with PowerShell?" -Title "Hey, you!" -Buttons YesNo -Icon Question
-Global:Popup "Microsoft Exel not installed - Use HTML Netscan?" -Title "Warning!" -Buttons OK -Icon Exclamation
+$result = Global:Popup "Do you want to get work done with PowerShell?" -Title "Hey, you!" -Buttons YesNo -Icon Question
+$result
+#Global:Popup "Microsoft Exel not installed - Use HTML Netscan?" -Title "Warning!" -Buttons OK -Icon Exclamation
 
